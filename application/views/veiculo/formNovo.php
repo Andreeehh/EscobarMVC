@@ -7,26 +7,27 @@
     <title>Cadastro de um novo veículo</title>
 </head>
 <body>
-    <form method="Post" action="http://127.0.0.1/codeigniter/index.php/veiculo/novo">
+    <form method="Post" action="http://127.0.0.1/codeigniter-aula/index.php/veiculo/novo">
         <label>Modelo</label>
-        <input type="text" name="modelo"/>
+        <input type="text" name="modelo" required/>
         <br/>
         <label>Marca</label>
-        <input type="text" name="marca"/>
+        <input type="text" name="marca" required/>
         <br/>
         <label>Ano</label>
-        <input type="text" name="ano"/>
+        <input type="text" name="ano" required/>
         <br/>
         <label>Valor</label>
-        <input type="text" name="valor"/>
+        <input type="text" name="valor" required/>
         <br/>        
         <label>Cor</label>
-        <input type="text" name="cor"/>
+        <input type="text" name="cor" required/>
         <br/>
-        <label>Ativo</label>
-        <input type="checkbox" name="ativo"/>
+        <label>Imagem</label>
+        <input type="text" name="imagem" required/>
         <br/>
         <input type="submit" value="Salvar"/>
+        <a href='http://127.0.0.1/codeigniter-aula/index.php/veiculo'> Voltar/Cancelar</a>
     </form>
 </body>
 </html>
