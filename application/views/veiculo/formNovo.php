@@ -1,33 +1,57 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastro de um novo veículo</title>
-</head>
-<body>
-    <form method="Post" action="http://127.0.0.1/codeigniter-aula/index.php/veiculo/novo">
-        <label>Modelo</label>
-        <input type="text" name="modelo" required/>
-        <br/>
-        <label>Marca</label>
-        <input type="text" name="marca" required/>
-        <br/>
-        <label>Ano</label>
-        <input type="text" name="ano" required/>
-        <br/>
-        <label>Valor</label>
-        <input type="text" name="valor" required/>
-        <br/>        
-        <label>Cor</label>
-        <input type="text" name="cor" required/>
-        <br/>
-        <label>Imagem</label>
-        <input type="text" name="imagem" required/>
-        <br/>
-        <input type="submit" value="Salvar"/>
-        <a href='http://127.0.0.1/codeigniter-aula/index.php/veiculo'> Voltar/Cancelar</a>
-    </form>
-</body>
-</html>
+<section class="section">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Adicionar novo veículo</h5>
+
+                    <form method="Post" action="http://127.0.0.1/codeigniter-aula/index.php/veiculo/novo">
+                        <div class="row mb-3">
+                            <label class="col-sm-2 col-form-label">Modelo</label>
+                            <div class="col-sm-10">
+                                <input class="form-control" type="text" name="modelo" required />
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <label class="col-sm-2 col-form-label">Marca</label>
+                            <div class="col-sm-10">
+                                <input class="form-control" type="text" name="marca" required />
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <label class="col-sm-2 col-form-label">Ano</label>
+                            <div class="col-sm-10">
+                                <input class="form-control" type="text" name="ano" required />
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <label class="col-sm-2 col-form-label">Valor</label>
+                            <div class="col-sm-10">
+                                <input class="form-control" type="text" name="valor" required />
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <label class="col-sm-2 col-form-label">Cor</label>
+                            <div class="col-sm-10">
+                                <input class="form-control" type="text" name="cor" required />
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <label class="col-sm-2 col-form-label">Imagem</label>
+                            <div class="col-sm-10">
+                                <input class="form-control" type="text" name="imagem" required />
+                            </div>
+                        </div>
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-primary">Salvar</button>
+                            <button type="reset" class="btn btn-secondary">Limpar</button>
+                            <a class="btn btn-secondary" href='http://127.0.0.1/codeigniter-aula/index.php/veiculo'> Voltar/Cancelar</a>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>

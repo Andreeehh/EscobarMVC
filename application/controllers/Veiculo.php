@@ -2,6 +2,15 @@
 
 class Veiculo extends CI_Controller
 {
+    public function __construct()
+    {
+        parent::__construct();
+        
+        if (!isset($_SESSION["tesi2022"])){
+            echo "você precisa estar logado";
+            header("location: http://127.0.0.1/codeigniter-aula/index.php/login/");
+        }
+    }
     public function index()
     {
         $this->load->model("veiculomodel");
@@ -10,15 +19,20 @@ class Veiculo extends CI_Controller
         $tabela = "";
         foreach ($veiculos as $item) {
             $tabela .= "
-                    <tr>
-                        <td style='cursor: pointer'>
-                            <a href='/codeigniter-aula/index.php/veiculo/alterar?codigo=" . $item->id . "'>
-                            ✏️
-                            </a>
-                            <a href='/codeigniter-aula/index.php/veiculo/excluir?codigo=" . $item->id . "'>
-                            ❌
-                            </a>
-                        </td>
+                    <tr>";
+            if (isset($_SESSION["tesi2022"])){
+                $tabela .= "
+                <td style='cursor: pointer'>
+                    <a href='/codeigniter-aula/index.php/veiculo/alterar?codigo=" . $item->id . "'>
+                    ✏️
+                    </a>
+                    <a href='/codeigniter-aula/index.php/veiculo/excluir?codigo=" . $item->id . "'>
+                    ❌
+                    </a>
+                </td>";
+            }
+            $tabela .= "
+                    
                         <td>" . $item->marca . "</td>
                         <td>" . $item->modelo . "</td>
                         <td>" . $item->cor . "</td>
@@ -37,7 +51,7 @@ class Veiculo extends CI_Controller
             "erro" => "ashduashu"
         );
 
-        $this->load->view("veiculo/index", $variavel);
+        $this->template->load("templates/adminTemp", "veiculo/index", $variavel);
     }
 
     public function novo()
@@ -114,7 +128,7 @@ class Veiculo extends CI_Controller
 
     public function formNovo()
     {
-        $this->load->view("veiculo/formNovo");
+        $this->template->load("templates/adminTemp","veiculo/formNovo");
     }
 
     public function excluir () {
