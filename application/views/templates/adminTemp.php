@@ -286,6 +286,13 @@
         </a>
       </li><!-- End Dashboard Nav -->
 
+      <li class="nav-item">
+        <a class="nav-link collapsed"  href="<?php echo base_url();?>index.php/cor">
+          <i class="bi bi-file"></i>
+          <span>Cores</span>
+        </a>
+      </li><!-- End Dashboard Nav -->
+
     </ul>
 
   </aside><!-- End Sidebar-->

@@ -4,6 +4,7 @@
 <table class="table table-striped">
     <thead>
         <tr>
+            <td></td>
             <td>Marca</td>
             <td>Modelo</td>
             <td>Cor</td>

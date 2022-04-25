@@ -33,7 +33,10 @@
                         <div class="row mb-3">
                             <label class="col-sm-2 col-form-label">Cor</label>
                             <div class="col-sm-10">
-                                <input class="form-control" type="text" name="cor" required />
+                                <select name="cor" class="form-select" required>
+                                    <option value="">Selecione a cor</option>
+                                    <?php echo $opcoes; ?>
+                                </select>
                             </div>
                         </div>
                         <div class="row mb-3">
@@ -47,6 +50,7 @@
                             <button type="reset" class="btn btn-secondary">Limpar</button>
                             <a class="btn btn-secondary" href='http://127.0.0.1/codeigniter-aula/index.php/veiculo'> Voltar/Cancelar</a>
                         </div>
+                        <!--<input type="file" multiple name="arquivos">-->
                     </form>
 
                 </div>

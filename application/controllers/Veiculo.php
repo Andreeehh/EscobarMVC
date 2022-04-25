@@ -5,8 +5,10 @@ class Veiculo extends CI_Controller
     public function __construct()
     {
         parent::__construct();
-        
-        if (!isset($_SESSION["tesi2022"])){
+
+        $this->load->model("CorModel");
+
+        if (!isset($_SESSION["tesi2022"])) {
             echo "você precisa estar logado";
             header("location: http://127.0.0.1/codeigniter-aula/index.php/login/");
         }
@@ -20,7 +22,7 @@ class Veiculo extends CI_Controller
         foreach ($veiculos as $item) {
             $tabela .= "
                     <tr>";
-            if (isset($_SESSION["tesi2022"])){
+            if (isset($_SESSION["tesi2022"])) {
                 $tabela .= "
                 <td style='cursor: pointer'>
                     <a href='/codeigniter-aula/index.php/veiculo/alterar?codigo=" . $item->id . "'>
@@ -35,7 +37,7 @@ class Veiculo extends CI_Controller
                     
                         <td>" . $item->marca . "</td>
                         <td>" . $item->modelo . "</td>
-                        <td>" . $item->cor . "</td>
+                        <td>" . $item->cor_nome . "</td>
                         <td>" . $item->valor . "</td>
                         <td>
                             <img src= '" . $item->imagem . "' style = 'width:100px' />
@@ -56,6 +58,7 @@ class Veiculo extends CI_Controller
 
     public function novo()
     {
+        //var_dump( $_FILES);
         $marca = $_POST["marca"];
         $modelo = $_POST['modelo'];
         $valor = $_POST['valor'];
@@ -78,7 +81,7 @@ class Veiculo extends CI_Controller
             header('location: /codeigniter-aula/index.php/veiculo');
         } else {
             echo "houve erro na alteração";
-        }      
+        }
     }
 
     //Alteração de veículo
@@ -92,10 +95,11 @@ class Veiculo extends CI_Controller
 
         $data = array(
             "veiculo" => $retorno[0],
-            "titulo" => "Alteração de veículos"
+            "titulo" => "Alteração de veículos",
+            "opcoes" => $this->montaComboCores($retorno[0]->cor)
         );
 
-        $this->load->view("veiculo/formAlterar", $data);
+        $this->template->load("templates/adminTemp", "veiculo/formAlterar", $data);
     }
 
     public function salvaralteracao()
@@ -128,10 +132,34 @@ class Veiculo extends CI_Controller
 
     public function formNovo()
     {
-        $this->template->load("templates/adminTemp","veiculo/formNovo");
+        $option = $this->montaComboCores(0);
+
+        $data = array(
+            "opcoes" => $option
+        );
+        $this->template->load("templates/adminTemp", "veiculo/formNovo", $data);
     }
 
-    public function excluir () {
+    private function montaComboCores($idCor)
+    {
+        $cores = $this->CorModel->selecionarTodos();
+        $option = "";
+        foreach ($cores as $linhas) {
+            $selecionado = "";
+            if ($idCor == $linhas->id) {
+                $selecionado = "selected";
+            }
+            $option .= "<option value ='" . $linhas->id . "'
+            " . $selecionado . "
+            >"
+                . $linhas->cor . " </option>";
+        }
+
+        return $option;
+    }
+
+    public function excluir()
+    {
         $this->load->model("VeiculoModel");
 
         $id = $_GET["codigo"];

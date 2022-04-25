@@ -1,37 +1,65 @@
-<!DOCTYPE html>
-<html lang="en">
+<section class="section">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Alterar veículo</h5>
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?php echo $titulo; ?></title>
-</head>
+                    <form method="Post" action="http://127.0.0.1/codeigniter-aula/index.php/veiculo/salvaralteracao">
+                        <div class="row mb-3" hidden>
+                            <label class="col-sm-2 col-form-label">id</label>
+                            <div class="col-sm-10">
+                                <input class="form-control" type="text" name="id" value="<?php echo $veiculo->id; ?>"  />
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <label class="col-sm-2 col-form-label">Modelo</label>
+                            <div class="col-sm-10">
+                                <input class="form-control" type="text" name="modelo" value="<?php echo $veiculo->modelo; ?>" required />
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <label class="col-sm-2 col-form-label">Marca</label>
+                            <div class="col-sm-10">
+                                <input class="form-control" type="text" name="marca" value="<?php echo $veiculo->marca; ?>" required />
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <label class="col-sm-2 col-form-label">Ano</label>
+                            <div class="col-sm-10">
+                                <input class="form-control" type="text" name="ano" value="<?php echo $veiculo->ano; ?>" required />
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <label class="col-sm-2 col-form-label">Valor</label>
+                            <div class="col-sm-10">
+                                <input class="form-control" type="text" name="valor" value="<?php echo $veiculo->valor; ?>" required />
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <label class="col-sm-2 col-form-label">Cor</label>
+                            <div class="col-sm-10">
+                                <select name="cor" class="form-select" required>
+                                    <?php echo $opcoes; ?>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <label class="col-sm-2 col-form-label">Imagem</label>
+                            <div class="col-sm-10">
+                                <input class="form-control" type="text" name="imagem" value="<?php echo $veiculo->imagem; ?>" required />
+                            </div>
+                        </div>
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-primary">Salvar</button>
+                            <button type="reset" class="btn btn-secondary">Limpar</button>
+                            <a class="btn btn-secondary" href='http://127.0.0.1/codeigniter-aula/index.php/veiculo'> Voltar/Cancelar</a>
+                        </div>
+                    </form>
 
-<body>
-    <form method="Post" action="http://127.0.0.1/codeigniter-aula/index.php/veiculo/salvaralteracao">
-        <input type="hidden" name="id" value="<?php echo $veiculo->id; ?>" />
-        <label>Modelo</label>
-        <input type="text" name="modelo" value="<?php echo $veiculo->modelo; ?>" />
-        <br />
-        <label>Marca</label>
-        <input type="text" name="marca" value="<?php echo $veiculo->marca; ?>" />
-        <br />
-        <label>Ano</label>
-        <input type="text" name="ano" value="<?php echo $veiculo->ano; ?>" />
-        <br />
-        <label>Valor</label>
-        <input type="text" name="valor" value="<?php echo $veiculo->valor; ?>" />
-        <br />
-        <label>Cor</label>
-        <input type="text" name="cor" value="<?php echo $veiculo->cor; ?>" />
-        <br />
-        <label>Imagem</label>
-        <input type="text" name="imagem" value="<?php echo $veiculo->imagem; ?>" />
-        <br />
-        <input type="submit" value="Salvar" />
-        <a href='http://127.0.0.1/codeigniter-aula/index.php/veiculo'> Voltar/Cancelar</a>
-    </form>
-</body>
+                </div>
+            </div>
 
-</html>
+        </div>
+    </div>
+</section>
